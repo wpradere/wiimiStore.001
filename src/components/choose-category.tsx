@@ -22,8 +22,8 @@ export default async function  ChooseCategory() {
                                href={`/category/${category.name}`}
                                className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg">
                                    <Image src={`/category/${category.url}`} alt={category.name}
-                                          width={270}
-                                          height={270}
+                                          width={180}
+                                          height={180}
                                           className=" transition duration-300 ease-in-out rounded-lg hover:scale-110 " />
                                 <p className="absolute w-full py-2 text-lg font-bold text-center text-black bottom-5 backdrop-blur-lg ">{category.name}</p>
 

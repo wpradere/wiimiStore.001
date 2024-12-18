@@ -5,7 +5,7 @@ import {MenuList} from "@/components/ui/menu-list/menu_list";
 import ItemsMenuMovile from "@/components/items-menu-movile";
 
 
-export default function TopMenu() {
+export default function     TopMenu() {
     return(
 
             <nav className="flex justify-between items-center ">
@@ -29,7 +29,7 @@ export default function TopMenu() {
                     <Link href="/search" className="mx-2 ">
                         <IoSearchOutline className="w-7 h-7 "/>
                     </Link>
-                    <Link href="/loved-products" className="mx-2 ">
+                    {/*<Link href="/loved-products" className="mx-2 ">
                         <IoHeartOutline className="w-7 h-7  w-"/>
                     </Link>
 
@@ -38,7 +38,7 @@ export default function TopMenu() {
                             <span className="absolute  mr-4 text-xs rounded-full  ppx-1 font-bold -top-2 bg-blue-700 text-white -right-1">3</span>
                             <IoCartOutline className="w-7 h-7 mr-3"/>
                         </div>
-                    </Link>
+                    </Link>*/}
                 </div>
                 <div className="flex sm:hidden">
                     <ItemsMenuMovile/>

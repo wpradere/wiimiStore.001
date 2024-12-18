@@ -1,4 +1,5 @@
 import {getProductBySlug} from "@/components/actions/product/product-by-slug";
+import ProductCardSlug from "@/components/product-card-slug";
 
 interface Props {
     params:{
@@ -10,12 +11,12 @@ interface Props {
 export default async function ProductPage({params}:Props) {
 
     const {slug} = await params;
-    const {products} = await getProductBySlug({slug});
 
-    console.log(slug);
+
+
     return(
         <div>
-        <h1>Product Page</h1>
+       <ProductCardSlug slug={slug}  />
         </div>
     )
 

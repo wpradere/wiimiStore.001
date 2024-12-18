@@ -36,7 +36,7 @@ export const getProductByCategory = async (
 
         });
         return{
-            products: products.map(product=>({
+            productsData: products.map(product=>({
                 ...product,
                 images: product.ProductImage.map(image=>image.url)
             }))

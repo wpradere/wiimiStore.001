@@ -1,9 +1,6 @@
 
 
-import CardProductsByCategory from "@/components/Products-card";
-
-
-
+import CardProductsByCategory from "@/components/Products-card-caregory";
 
 
 

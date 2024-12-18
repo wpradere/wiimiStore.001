@@ -8,26 +8,26 @@ import Autoplay from "embla-carousel-autoplay";
 export const dataCarrouselTop =[
     {
         id:1,
-        title: "Envio en 24/48 horas",
-        description: "Como cliente VIP",
+        title: "Pago contra entrega",
+        description: "Los mejores productos",
         link:"#"
     },
     {
         id:2,
-        title: "Envio en 24/48 horas",
-        description: "Como cliente VIP",
+        title: "Descubre lo extraordinario en nuestra tienda",
+        description: "Atencion personalizada",
         link:"#"
     },
     {
         id:3,
-        title: "Envio en 24/48 horas",
-        description: "Como cliente VIP",
+        title: "Envío a toda Colombia",
+        description: "Atencion personalizada",
         link:"#"
     },
     {
         id:4,
-        title: "Envio en 24/48 horas",
-        description: "Como cliente VIP",
+        title: "Productos únicos ",
+        description: "Cada artículo ha sido cuidadosamente seleccionado para sorprenderte con su originalidad",
         link:"#"
     }
 ]

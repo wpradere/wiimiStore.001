@@ -130,6 +130,10 @@ body {
   animation-name: fadeIn;
 }
 
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-800 text-white py-2 px-4 rounded transition-all;
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -9,26 +9,25 @@ interface Props {
 export const getProductBySlug = async ({
     slug,
                                        }:Props)=> {
+
     try {
-        const products = await prisma.product.findMany({
+        const productData = await prisma.product.findFirst({
             where:{
                 slug:slug,
             },
             include: {
                 ProductImage:{
-                    take:2,
                     select: {
                         url:true
                     }
                 }
             }
-
         });
+
+        if(!productData)return null;
         return{
-            products: products.map(product=>({
-                ...product,
-                images: product.ProductImage.map(image=>image.url)
-            }))
+            ...productData,
+            images: productData.ProductImage.map(image => image.url),
         }
 
     }catch (error){
