@@ -16,9 +16,7 @@ export default async function ProductCardSlug({slug}: Props) {
     }
     return (
 
-        <div className="mt-5 mb-20 grid md:grid-cols-3 gap-3 ">
-
-
+        <div className="mt-5 grid md:grid-cols-3 gap-3 ">
 
             {/* slideshow*/}
             <div className="col-span-1 md:col-span-2">

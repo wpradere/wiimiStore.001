@@ -42,8 +42,8 @@ export default function ProductSlidesShow({imges,title}: Props) {
                     imges.map((image,index, i) => (
                 <SwiperSlide key={index}>
                     <Image
-                        width={500}
-                        height={500}
+                        width={300}
+                        height={300}
                         src={`/products/${image}`}
                         alt={title}
                         className="rounded-lg object-fill"
@@ -65,8 +65,8 @@ export default function ProductSlidesShow({imges,title}: Props) {
                     imges.map((image,index, i) => (
                         <SwiperSlide key={index}>
                             <Image
-                                width={500}
-                                height={500}
+                                width={300}
+                                height={300}
                                 src={`/products/${image}`}
                                 alt={title}
                                 className="rounded-lg object-fill"
