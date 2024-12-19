@@ -11,7 +11,7 @@ export default async function CategoryById({ params }: { params: { nameCategory:
 
 
     return(
-        <div className=" flex flex-col justify-center  m-20 sm:flex-row gap-10 mb-10">
+        <div className=" flex flex-wrap justify-center  m-20 sm:flex-row gap-10 mb-10">
             <CardProductsByCategory nameCategory={nameCategory}/>
         </div>
     )
