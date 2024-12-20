@@ -10,7 +10,7 @@ export async function POST(request: Request) {
         const categoriesDB = await prisma.category.findMany();
 
 
-        const categoriesMap = categoriesDB.reduce((map:Record<string, string>, category) => {
+        const categoriesMap = categoriesDB.reduce((map:Record<string, string>, category:{ name: string; id: string }) => {
             map[category.name] = category.id;
             return map;
         }, {} as Record<string, string>);
