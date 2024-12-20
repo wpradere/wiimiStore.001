@@ -1,6 +1,7 @@
 'use server'
 
 import prisma from "@/lib/prisma";
+import {CategoryType} from "@/components/types/category";
 
 export const getCategorysProducts = async ()=>{
 
@@ -15,11 +16,12 @@ export const getCategorysProducts = async ()=>{
             },
 
         })
+
         return{
             categories: categories.map(category=>({
               ...category,
 
-            }))
+            })) as CategoryType[],
         }
 
     }catch (error) {
