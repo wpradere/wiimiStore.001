@@ -10,10 +10,10 @@ export default function ItemsMenuMovile() {
                <IoListOutline className="w-7 h-7 mr-3"/>
            </PopoverTrigger>
            <PopoverContent>
-               <Link href="/category/armables" className="block" >Armables</Link>
-               <Link href="/category/juguetes" className="block">Juguetes</Link>
-               <Link href="/category/llaveros" className="block">Llaveros</Link>
-               <Link href="/category/navidad" className="block">Navidad</Link>
+               <Link href="/category/Armables" className="block" >Armables</Link>
+               <Link href="/category/Juguetes" className="block">Juguetes</Link>
+               <Link href="/category/Llaveros" className="block">Llaveros</Link>
+               <Link href="/category/Navidad" className="block">Navidad</Link>
            </PopoverContent>
        </Popover>
     )

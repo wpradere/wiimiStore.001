@@ -16,25 +16,25 @@ import {
 const components: { title: string; href: string; description: string }[] = [
         {
         title: "Armables",
-        href: "/category/armables",
+        href: "/category/Armables",
         description:
             "Hermosos carros deportivos y figuras más famosas del anime. ",
     },
     {
         title: "Juguetes",
-        href: "/category/juguetes",
+        href: "/category/Juguetes",
         description:
             "Juguetes novedosos a muy buenos precios.",
     },
     {
         title: "Llaveros",
-        href: "/category/llaveros",
+        href: "/category/Llaveros",
         description:
             "Selección de varios tipos de llaveros, especialmente para ti.",
     },
     {
         title: "Navidad",
-        href: "/category/navidad",
+        href: "/category/Navidad",
         description: "Para esta Navidad, una gran variedad para disfrutar con la familia.",
     },
 ]

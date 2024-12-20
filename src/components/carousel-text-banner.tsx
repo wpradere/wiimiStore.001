@@ -36,7 +36,7 @@ export const dataCarrouselTop =[
 export default function CarrucelComponent() {
     const  router = useRouter();
     return(
-        <div className="bg-gray-200 " >
+        <div className="bg-sky-500 " >
             <Carousel className="w-full max-w-4xl mx-auto"
             plugins={[
                 Autoplay({
