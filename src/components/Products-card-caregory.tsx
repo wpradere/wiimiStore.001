@@ -18,7 +18,7 @@ export default async function CardProductsByCategory({nameCategory}: Props) {
         <>
             {
 
-                productsData.map((product) => (
+                productsData.map((product:ProductType) => (
                     <Card className="py-4 border border-gray-200 shadow-card" key={product.id}>
                         <CardContent className="relative flex items-center justify-center px-6 py-2 ">
 
