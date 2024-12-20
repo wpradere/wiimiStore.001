@@ -13,7 +13,7 @@ export default async function CardProductsByCategory({nameCategory}: Props) {
 
 
     const {productsData} = await getProductByCategory(nameCategory);
-    console.log(" - - - - - -- ",productsData);
+
 
     return (
         <>
