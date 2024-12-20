@@ -2,6 +2,7 @@
 
 import prisma from "@/lib/prisma";
 import {CategoryType} from "@/components/types/category";
+import {CategoryWithProductsType} from "@/components/types/product-category";
 
 export const getCategorysProducts = async ()=>{
 
@@ -18,7 +19,7 @@ export const getCategorysProducts = async ()=>{
         })
 
         return{
-            categories: categories.map(category=>({
+            categories: categories.map((category:CategoryType)=>({
               ...category,
 
             })) as CategoryType[],
