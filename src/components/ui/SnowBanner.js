@@ -32,7 +32,7 @@ const SnowBanner = () => {
             {/* Contenido del banner */}
             <div className="z-10  mt-9  ml-[2rem] pl-8 md:mt-56 md:ml-[10rem] ">
                 <h1
-                  ><span className={`${titleFonts.className} antialiased text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-100 to-amber-50   ml-10 text-8xl  font-bold`}>wiimy</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-100 to-amber-50 font-bold text-xl">| Store</span>
+                  ><span className={`${titleFonts.className} antialiased text-transparent bg-clip-text bg-gradient-to-r from-amber-300/80 via-amber-200/70 to-amber-100/70   ml-10 text-8xl  font-bold`}>wiimy</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-100 to-amber-50 font-bold text-xl">| Store</span>
                 </h1>
                 <p className="text-lg mt-2 md:text-4xl md:mt-14 text-black">Sorprende, regala, disfruta: ¡<span
                   className={`${titleFonts.className} text-3xl  text-black font-bold`}>wiimy</span> tiene lo que

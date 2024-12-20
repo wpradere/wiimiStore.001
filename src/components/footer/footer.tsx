@@ -28,7 +28,7 @@ const  dataFooter =[
 
 export default function FooterComponent() {
     return(
-        <footer className="mt-4">
+        <footer className="mt-4 bg-gradient-to-t from-sky-300 to-sky-50">
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
 
             <div className="sm:flex sm:items-center sm:justify-between">

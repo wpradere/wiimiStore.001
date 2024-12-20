@@ -4,6 +4,7 @@ import {Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel"
 import {useRouter} from "next/navigation";
 import {Card, CardContent} from "@/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
+import {titleBanner} from "@/app/config/fonts";
 
 export const dataCarrouselTop =[
     {
@@ -50,8 +51,8 @@ export default function CarrucelComponent() {
                             <div>
                                 <Card className="shadow-none border-none bg-transparent">
                                     <CardContent className="flex flex-col justify-center p-2 items-center text-center" >
-                                        <p className="sm:text-lg text-wrap" >{title}</p>
-                                        <p className="text-xs sm:text-sm text-wrap">{description}</p>
+                                        <p className={`${titleBanner.className}  sm:text-2xl text-wrap `}>{title}</p>
+                                        <p className={`${titleBanner.className}  sm:text-lg text-wrap`}>{description}</p>
                                     </CardContent>
                                 </Card>
                             </div>

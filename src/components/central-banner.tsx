@@ -3,7 +3,8 @@ import {titleFonts} from "@/app/config/fonts";
 
 export default function CentralBanner() {
     return(
-        <div className="p-5 sm:p-20 text-center">
+        <div className=" flex p-5 sm:p-20 text-center items-center justify-center ">
+          <div className=" bg-white  text-center  rounded-lg p-16">
             <div>
                 <span className="font-black text-xl text-primary">Únete a {"  "}</span>
                 <span className={`${titleFonts.className} antialiased text-4xl font-bold`}>Wiimy</span>
@@ -19,6 +20,7 @@ export default function CentralBanner() {
             >
                 Enviar Mensaje
             </Link>
+          </div>
         </div>
     )
 
