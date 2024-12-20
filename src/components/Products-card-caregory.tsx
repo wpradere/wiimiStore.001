@@ -1,10 +1,9 @@
 import {Product} from "@/components/interfaces/product-interface";
 import Image from "next/image";
 import Link from "next/link";
-import {Expand} from "lucide-react";
-import IconButton from "@/components/icon-button";
 import {Card, CardContent} from "@/components/ui/card";
 import {getProductByCategory} from "@/components/actions/product/get-product-by-category";
+import {ProductType} from "@/components/types/product";
 
 interface Props {
     nameCategory: string;
@@ -14,13 +13,13 @@ export default async function CardProductsByCategory({nameCategory}: Props) {
 
 
     const {productsData} = await getProductByCategory(nameCategory);
-
+    console.log(" - - - - - -- ",productsData);
 
     return (
         <>
             {
 
-                productsData.map((product) => (
+                productsData.map((product:ProductType) => (
                     <Card className="py-4 border border-gray-200 shadow-card" key={product.id}>
                         <CardContent className="relative flex items-center justify-center px-6 py-2 ">
 
