@@ -6,7 +6,7 @@ import {CategoryType} from "@/components/types/category";
 export const getCategorysProducts = async ()=>{
 
     try{
-        const categories = await prisma.category.findMany({
+        const categories:CategoryType[] = await prisma.category.findMany({
             include: {
                 Product: {
                     select: {
