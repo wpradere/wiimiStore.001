@@ -2,6 +2,8 @@
 
 
 import prisma from "@/lib/prisma";
+import {ProductType} from "@/components/types/product";
+import {ProductTypebd} from "@/components/types/productbd";
 
 
 
@@ -35,10 +37,14 @@ export const getProductByCategory = async (
             }
 
         });
+
+
+
+
         return{
-            productsData: products.map(product=>({
+            productsData: products.map((product:ProductTypebd)  =>({
                 ...product,
-                images: product.ProductImage.map(image=>image.url)
+                images: product.ProductImage?.map((img) =>img.url) || [],
             }))
         }
 
