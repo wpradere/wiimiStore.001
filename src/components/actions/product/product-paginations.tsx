@@ -2,6 +2,7 @@
 
 
 import prisma from "@/lib/prisma";
+import {ProductTypebd} from "@/components/types/productbd";
 
 
 export const getPaginationProductWithImages = async ()=>{
@@ -18,9 +19,9 @@ export const getPaginationProductWithImages = async ()=>{
 
         });
         return{
-            products: products.map(product=>({
+            products: products.map((product:ProductTypebd)=>({
                 ...product,
-                images: product.ProductImage.map(image=>image.url)
+                images: product.ProductImage?.map(image=>image.url)
             }))
         }
 
