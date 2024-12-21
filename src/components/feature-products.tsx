@@ -16,7 +16,7 @@ export default async function FeatureProductsComponent() {
 
     return (
         <div className="max-w-6xl py-4  mx-auto sm:py-16 sm:px-24 ">
-            <h1 className={`${tittle.className} px-6 text-3xl sm:pb-8 items-center`}>Productos destacados</h1>
+            <h1 className={`${tittle.className} px-6 text-3xl sm:pb-8 items-center justify-center text-center`}>PRODUCTOS ESPECIALES</h1>
             <Carousel>
                 <CarouselContent className="-ml-2 md:-ml-4">
                     <SkeletonSchema grid={0}/>
