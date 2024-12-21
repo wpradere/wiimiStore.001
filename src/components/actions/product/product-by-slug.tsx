@@ -1,5 +1,7 @@
 'use server'
 import prisma from "@/lib/prisma";
+import {ProductImageType} from "@/components/types/product";
+
 
 interface Props {
     slug:string;
@@ -27,7 +29,7 @@ export const getProductBySlug = async ({
         if(!productData)return null;
         return{
             ...productData,
-            images: productData.ProductImage.map(image => image.url),
+            images: productData.ProductImage.map((image:ProductImageType) => image.url),
         }
 
     }catch (error){

@@ -9,3 +9,7 @@ export type ProductType = {
     ProductImage?: { url: string }[]; // Soporte para ProductImage opcional
     images: string[];
 };
+
+export type ProductImageType = {
+    url: string;
+};
