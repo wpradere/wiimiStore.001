@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import {ProductFeatureType} from "@/components/types/product";
 
 export const getFeaturesProduct = async ()=>{
     try {
@@ -6,11 +7,13 @@ export const getFeaturesProduct = async ()=>{
 
 
         });
+
         return{
-            featureproducts: featureProducts.map(featureproduct=>({
+            featureproducts: featureProducts.map((featureproduct:ProductFeatureType)=>({
                 ...featureproduct,
             }))
         }
+
 
     }catch (error){
         throw  new Error('no se pudo cargar los productos');

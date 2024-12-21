@@ -13,3 +13,13 @@ export type ProductType = {
 export type ProductImageType = {
     url: string;
 };
+
+export type ProductFeatureType = {
+    id: string;
+    title: string;
+    decriptionProduct: string;
+    inStock: number;
+    price: number;
+    slug: string;
+    image: string;
+}
