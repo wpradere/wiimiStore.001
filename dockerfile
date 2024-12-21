@@ -10,9 +10,6 @@ COPY package*.json ./
 # Instala las dependencias
 RUN npm install
 
-# Instala ESLint como devDependency (si no se ha instalado ya)
-RUN npm install --save-dev eslint
-
 # Copia el directorio prisma que contiene schema.prisma
 COPY prisma ./prisma
 
