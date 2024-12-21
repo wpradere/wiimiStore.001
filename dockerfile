@@ -1,39 +1,28 @@
-# Etapa 1: Construcción de la aplicación
-FROM node:22-alpine AS builder
+# Establece la imagen base
+FROM node:18
 
-# Crear el directorio de trabajo
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar package.json y package-lock.json
+# Copia el package.json y package-lock.json (si existe)
 COPY package*.json ./
 
-# Instalar dependencias
+# Instala las dependencias
 RUN npm install
 
-# Copiar todo el código fuente
+# Instala ESLint como devDependency (si no se ha instalado ya)
+RUN npm install --save-dev eslint
+
+# Ejecuta prisma generate para generar el cliente de Prisma
+RUN npx prisma generate
+
+# Copia el resto de los archivos del proyecto
 COPY . .
 
-# Construir la aplicación Next.js
+# Construye la aplicación Next.js
 RUN npm run build
 
-# Etapa 2: Configurar el servidor de producción
-FROM node:18-alpine AS runner
-
-# Crear el directorio de trabajo
-WORKDIR /app
-
-# Copiar los archivos necesarios desde la etapa de construcción
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-
-# Instalar dependencias de producción
-RUN npm install --production
-
-# Configurar la variable de entorno para Next.js
-ENV NODE_ENV production
-
-# Exponer el puerto que usará Next.js
+# Expone el puerto en el que Next.js corre por defecto
 EXPOSE 3000
 
 # Comando para iniciar la aplicación
