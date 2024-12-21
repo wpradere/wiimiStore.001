@@ -8,6 +8,7 @@ import {Expand} from "lucide-react";
 import IconButton from "@/components/icon-button";
 import {getFeaturesProduct} from "@/components/actions/product/products-feature";
 import {titleFonts, tittle} from "@/app/config/fonts";
+import {ProductFeatureType, ProductType} from "@/components/types/product";
 
 
 export default async function FeatureProductsComponent() {
@@ -20,7 +21,7 @@ export default async function FeatureProductsComponent() {
                 <CarouselContent className="-ml-2 md:-ml-4">
                     <SkeletonSchema grid={0}/>
                     {featureproducts !== null && (
-                        featureproducts.map((product) => {
+                        featureproducts.map((product:ProductFeatureType) => {
                             const {id} = product
                             return (
                                 <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3 group">
