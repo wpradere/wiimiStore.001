@@ -13,11 +13,14 @@ RUN npm install
 # Instala ESLint como devDependency (si no se ha instalado ya)
 RUN npm install --save-dev eslint
 
-# Ejecuta prisma generate para generar el cliente de Prisma
-RUN npx prisma generate
+# Copia el directorio prisma que contiene schema.prisma
+COPY prisma ./prisma
 
 # Copia el resto de los archivos del proyecto
 COPY . .
+
+# Ejecuta prisma generate para generar el cliente de Prisma
+RUN npx prisma generate
 
 # Construye la aplicación Next.js
 RUN npm run build
