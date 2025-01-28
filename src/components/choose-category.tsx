@@ -32,7 +32,6 @@ export default async function  ChooseCategory() {
 
                            ))
                        )}
-
                </div>
 
            </div>
