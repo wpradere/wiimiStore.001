@@ -15,8 +15,8 @@ export default async function FeatureProductsComponent() {
     const {featureproducts} = await getFeaturesProduct();
 
     return (
-        <div className="max-w-6xl py-4  mx-auto sm:py-16 sm:px-24 ">
-            <h1 className={`${tittle.className} px-6 text-3xl sm:pb-8 items-center justify-center text-center`}>PRODUCTOS ESPECIALES</h1>
+        <div className="max-w-8xl  mx-auto sm:py-9 sm:px-24 ">
+
             <Carousel>
                 <CarouselContent className="-ml-2 md:-ml-4">
                     <SkeletonSchema grid={0}/>
@@ -24,14 +24,14 @@ export default async function FeatureProductsComponent() {
                         featureproducts.map((product:ProductFeatureType) => {
                             const {id} = product
                             return (
-                                <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3 group">
+                                <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/6 group">
                                     <div className="p-1">
                                         <Card className="py-4 border border-gray-200 shadow-none">
                                             <CardContent
                                                 className="relative flex items-center justify-center px-6 py-2 ">
                                                 <Image src={`/products/${product.image}`} alt={product.title}
-                                                       width={150}
-                                                       height={150}
+                                                       width={250}
+                                                       height={250}
                                                 />
                                                 <div
                                                     className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5  ">

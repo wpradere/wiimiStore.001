@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-    background: #eeedec;
+    background: #ede7de;
 /*  background: #f0f5f7;*/
   /*--background: #d9b4a7;*/
   --foreground: #171717;
@@ -135,6 +135,16 @@ body {
 
 .btn-primary {
   @apply bg-blue-600 hover:bg-blue-800 text-white py-2 px-4 rounded transition-all;
+}
+
+.carrousel-sing {
+  background: linear-gradient(to bottom, #1307e3,#9307e3,#ede7de);
+}
+
+
+
+.feature-products {
+  background: #9307e3;
 }
 
 @layer base {

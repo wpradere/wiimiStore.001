@@ -8,18 +8,18 @@ import ItemsMenuMovile from "@/components/items-menu-movile";
 export default function     TopMenu() {
     return(
 
-            <nav className="flex justify-between items-center ">
+            <nav className="flex p-3 pb-8 justify-around  items-center ">
             {/*Logo*/}
             <div>
                 <Link href="/">
-                    <span className={`${titleFonts.className} antialiased ml-10 text-4xl font-bold`}>wiimy</span>
+                    <span className={`${titleFonts.className}  antialiased ml-10 text-5xl font-bold`}>wiimy</span>
                     <span> | Store</span>
                 </Link>
             </div>
 
             {/*Center Menu*/}
                 <div className="  items-center justify-between hidden sm:flex">
-                   <MenuList/>
+                    {/*<MenuList/>*/}
                 </div>
 
 
