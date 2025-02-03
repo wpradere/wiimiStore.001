@@ -12,7 +12,7 @@ RUN npm install
 COPY .env .env
 
 # Agrega la variable DATABASE_URL para la compilación
-ENV DATABASE_URL="postgresql://asa:asa@localhost:5432/wiimy_db_store"
+ENV DATABASE_URL="DATABASE_URL=postgresql://asa:asa@db:5432/wiimy_db_store"
 
 # Copia el directorio de Prisma
 COPY prisma ./prisma
