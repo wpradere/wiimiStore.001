@@ -10,9 +10,11 @@ RUN npm install
 
 # Copia el resto de la app
 COPY . .
+# Construye la aplicación Next.js
+RUN npm run build
 
 # Expone el puerto
 EXPOSE 3000
 
 # Comando para iniciar la app y correr migraciones en runtime
-CMD ["sh", "-c", "npx prisma generate && npx prisma migrate deploy && npm start"]
+CMD ["sh", "-c", "npx prisma generate && npx prisma migrate deploy && npm run build && npm start"]
