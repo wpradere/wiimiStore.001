@@ -1,47 +1,30 @@
-# Use postgres/example user/password credentials
-version: '3.9'
+version: '3.8'
 
 services:
-
-  postgres:
-    image: postgres
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      - DATABASE_HOST=127.0.0.1
-      - POSTGRES_USER=asa
-      - POSTGRES_PASSWORD=asa
-      - POSTGRES_DB=wiimy_db_store
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-
-  pgadmin:
-    image: dpage/pgadmin4
-    restart: always
-    ports:
-      - "8085:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    depends_on:
-      - postgres
+  # Servicio para la aplicación (tu aplicación Next.js)
   app:
     build:
-      context: .  # Usa el directorio actual para encontrar el Dockerfile
-      dockerfile: Dockerfile
-    restart: always
+      context: .
+      dockerfile: Dockerfile # Especifica el Dockerfile si lo necesitas
     ports:
-      - "3000:3000"
+      - "3000:3000"   # Expone el puerto 3000 para tu aplicación
     environment:
-      - DATABASE_URL=postgresql://asa:asa@postgres:5432/wiimy_db_store
+      - DATABASE_URL=postgresql://asa:asa@db:5432/wiimy_db_store # URL de conexión a la DB, "db" es el nombre del servicio de la base de datos
     depends_on:
-      - postgres
-    volumes:
-      - .:/app
-      - /app/node_modules  # Evita sobrescribir node_modules con los archivos locales
-    command: ["npm", "run", "dev"]  # Usa npm run dev si es Next.js en desarrollo
+      - db   # Indica que la app depende del contenedor de la base de datos
 
+  # Servicio para la base de datos (PostgreSQL)
+  db:
+    image: postgres:13 # Usa la imagen oficial de PostgreSQL
+    environment:
+      POSTGRES_USER: asa
+      POSTGRES_PASSWORD: asa
+      POSTGRES_DB: wiimy_db_store  # Nombre de la base de datos que tu aplicación utilizará
+    ports:
+      - "5432:5432"   # Expone el puerto 5432 para conectar desde el host (opcional)
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Volumen para persistir los datos
+
+# Volumen para la base de datos
 volumes:
   postgres_data:
