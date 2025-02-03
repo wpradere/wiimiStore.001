@@ -1,8 +1,7 @@
 # Usa la imagen de Node.js
 FROM node:22.11
 
-# Instala nc (Netcat)
-RUN apt-get update && apt-get install -y netcat
+RUN apt-get update && apt-get install -y netcat-openbsd
 
 # Directorio de trabajo
 WORKDIR /app
