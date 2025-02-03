@@ -1,17 +1,19 @@
+# Use postgres/example user/password credentials
 version: '3.9'
 
 services:
+
   postgres:
     image: postgres
     restart: always
     ports:
       - "5432:5432"
     environment:
+      - DATABASE_HOST=127.0.0.1
       - POSTGRES_USER=asa
       - POSTGRES_PASSWORD=asa
       - POSTGRES_DB=wiimy_db_store
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+
 
   pgadmin:
     image: dpage/pgadmin4
@@ -23,19 +25,3 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     depends_on:
       - postgres
-
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - "3000:3000"
-    depends_on:
-      - postgres
-    environment:
-      - DATABASE_URL=postgresql://asa:asa@postgres:5432/wiimy_db_store
-    volumes:
-      - .:/app
-volumes:
-  postgres_data:
