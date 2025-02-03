@@ -13,6 +13,8 @@ services:
       - POSTGRES_USER=asa
       - POSTGRES_PASSWORD=asa
       - POSTGRES_DB=wiimy_db_store
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 
   pgadmin:
@@ -25,3 +27,21 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     depends_on:
       - postgres
+  app:
+    build:
+      context: .  # Usa el directorio actual para encontrar el Dockerfile
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://asa:asa@postgres:5432/wiimy_db_store
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - /app/node_modules  # Evita sobrescribir node_modules con los archivos locales
+    command: ["npm", "run", "dev"]  # Usa npm run dev si es Next.js en desarrollo
+
+volumes:
+  postgres_data:
