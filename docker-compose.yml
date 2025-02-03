@@ -37,4 +37,5 @@ services:
       - DATABASE_URL=postgresql://asa:asa@postgres:5432/wiimy_db_store
     volumes:
       - .:/app
-
+volumes:
+  postgres_data:
