@@ -11,14 +11,15 @@ RUN npm install
 # Copia el resto de la app
 COPY . .
 
-# Genera el cliente de Prisma
+# Genera Prisma Client
 RUN npx prisma generate
 
-# Construye la aplicación Next.js
-RUN npm run build
+# Agrega el entrypoint
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Expone el puerto
 EXPOSE 3000
 
-# Comando para iniciar la app y correr migraciones en runtime
-CMD ["sh", "-c", "npx prisma migrate deploy && npm start"]
+# Usa el entrypoint en lugar de CMD directamente
+ENTRYPOINT ["/entrypoint.sh"]
