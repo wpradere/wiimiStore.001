@@ -23,8 +23,7 @@ RUN npx prisma generate
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Ejecuta las migraciones de Prisma
-RUN npx prisma migrate dev
+
 
 # Copia el resto de la app
 COPY . .
