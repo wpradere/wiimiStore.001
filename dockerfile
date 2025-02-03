@@ -16,6 +16,9 @@ RUN npm install --save-dev eslint
 # Copia el archivo .env
 COPY .env .env
 
+# Agrega la variable DATABASE_URL para la compilación
+ENV DATABASE_URL="postgresql://asa:asa@localhost:5432/wiimy_db_store"
+
 # Copia el directorio prisma que contiene schema.prisma
 COPY prisma ./prisma
 
@@ -33,3 +36,5 @@ EXPOSE 3000
 
 # Comando para iniciar la aplicación
 CMD ["npm", "start"]
+
+
