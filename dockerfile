@@ -1,40 +1,31 @@
-# Establece la imagen base
-FROM node:18
+# Usa la imagen de Node.js
+FROM node:22.11
 
-# Establece el directorio de trabajo dentro del contenedor
+# Directorio de trabajo
 WORKDIR /app
 
-# Copia el package.json y package-lock.json (si existe)
+# Copia archivos antes de instalar dependencias
 COPY package*.json ./
-
-# Instala las dependencias
 RUN npm install
 
-# Instala ESLint como devDependency (si no se ha instalado ya)
-RUN npm install --save-dev eslint
-
-# Copia el archivo .env
+# Copia el archivo .env antes de la construcción
 COPY .env .env
 
 # Agrega la variable DATABASE_URL para la compilación
 ENV DATABASE_URL="postgresql://asa:asa@localhost:5432/wiimy_db_store"
 
-# Copia el directorio prisma que contiene schema.prisma
+# Copia el directorio de Prisma
 COPY prisma ./prisma
-
-# Copia el resto de los archivos del proyecto
-COPY . .
-
-# Ejecuta prisma generate para generar el cliente de Prisma
 RUN npx prisma generate
 
-# Construye la aplicación Next.js
+# Copia el resto de la app
+COPY . .
+
+# Construye la app Next.js
 RUN npm run build
 
-# Expone el puerto en el que Next.js corre por defecto
+# Expone el puerto
 EXPOSE 3000
 
-# Comando para iniciar la aplicación
+# Comando para iniciar la app
 CMD ["npm", "start"]
-
-
