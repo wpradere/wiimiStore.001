@@ -1,13 +1,10 @@
 #!/bin/sh
 
 echo "📌 Esperando a que PostgreSQL esté listo..."
-
-# Espera hasta que PostgreSQL esté accesible
-until PGPASSWORD=$POSTGRES_PASSWORD pg_isready -h postgres -p 5432 -U $POSTGRES_USER; do
+until nc -z -v -w30 postgres 5432; do
   echo "⏳ Esperando PostgreSQL..."
-  sleep 2
+  sleep 1
 done
-
 echo "✅ PostgreSQL está listo!"
 
 # Ejecuta las migraciones de Prisma
