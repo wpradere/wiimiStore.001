@@ -20,6 +20,9 @@ ENV DATABASE_URL="postgresql://asa:asa@postgres:5432/wiimy_db_store"
 COPY prisma ./prisma
 RUN npx prisma generate
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Ejecuta las migraciones de Prisma
 RUN npx prisma migrate dev
 
