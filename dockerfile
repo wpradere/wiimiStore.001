@@ -1,6 +1,9 @@
 # Usa la imagen oficial de Node.js
 FROM node:22.11
 
+# Instalación del cliente PostgreSQL para usar pg_isready
+RUN apt-get update && apt-get install -y postgresql-client
+
 # Directorio de trabajo
 WORKDIR /app
 
@@ -16,12 +19,14 @@ COPY . .
 # Genera el Prisma Client
 RUN npx prisma generate
 
-# Copia y hace ejecutable el entrypoint
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
 # Expone el puerto en el que la app escuchará
 EXPOSE 3000
 
-# Usa el entrypoint para ejecutar el script de inicio
-ENTRYPOINT ["/entrypoint.sh"]
+# CMD que espera a PostgreSQL y luego ejecuta las migraciones y la app
+CMD bash -c "until pg_isready -h postgres -p 5432 -U $POSTGRES_USER; do \
+    echo '⏳ Esperando PostgreSQL...'; \
+    sleep 2; \
+  done; \
+  echo '✅ PostgreSQL está listo!'; \
+  npx prisma migrate deploy; \
+  npm start"
