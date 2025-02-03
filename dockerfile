@@ -20,6 +20,11 @@ ENV DATABASE_URL="postgresql://asa:asa@postgres:5432/wiimy_db_store"
 COPY prisma ./prisma
 RUN npx prisma generate
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+
+
 # Copia el resto de la app
 COPY . .
 
@@ -29,5 +34,5 @@ RUN npm run build
 # Expone el puerto
 EXPOSE 3000
 
-# Comando para iniciar la aplicación
+# Comando para iniciar la app
 CMD ["npm", "start"]
