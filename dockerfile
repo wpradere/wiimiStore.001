@@ -21,7 +21,7 @@ COPY prisma ./prisma
 RUN npx prisma generate
 
 # Ejecuta las migraciones de Prisma
-RUN npx prisma migrate dev --env-file .env
+RUN npx prisma migrate dev
 
 # Copia el resto de la app
 COPY . .
