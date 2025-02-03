@@ -10,6 +10,10 @@ RUN npm install
 
 # Copia el resto de la app
 COPY . .
+
+# Genera el cliente de Prisma
+RUN npx prisma generate
+
 # Construye la aplicación Next.js
 RUN npm run build
 
@@ -17,4 +21,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Comando para iniciar la app y correr migraciones en runtime
-CMD ["sh", "-c", "npx prisma generate && npx prisma migrate deploy && npm run build && npm start"]
+CMD ["sh", "-c", "npx prisma migrate deploy && npm start"]
