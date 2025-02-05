@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Temporizador: 2 minutos (120 segundos)
+# Temporizador: 30 segundos
 TIMEOUT=30
 START_TIME=$(date +%s)
 
@@ -11,9 +11,9 @@ until PGPASSWORD=$POSTGRES_PASSWORD pg_isready -h $POSTGRES_HOST -U $POSTGRES_US
   CURRENT_TIME=$(date +%s)
   ELAPSED_TIME=$((CURRENT_TIME - START_TIME))
 
-  # Si han pasado más de 120 segundos, salimos
+  # Si han pasado más de 30 segundos, avisa y continúa con npm start
   if [ $ELAPSED_TIME -ge $TIMEOUT ]; then
-    echo "❌ Tiempo de espera agotado. PostgreSQL no está listo."
+    echo "⚠️  PostgreSQL no respondió en $TIMEOUT segundos. Continuando con la aplicación..."
     break
   fi
 
@@ -21,9 +21,6 @@ until PGPASSWORD=$POSTGRES_PASSWORD pg_isready -h $POSTGRES_HOST -U $POSTGRES_US
   sleep 1
 done
 
-echo "✅ PostgreSQL está listo!"
-
-# Ejecuta las migraciones de Prisma
 echo "📌 Ejecutando migraciones de Prisma..."
 npx prisma migrate deploy
 
