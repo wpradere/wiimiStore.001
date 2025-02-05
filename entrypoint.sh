@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Temporizador: 2 minutos (120 segundos)
+# Temporizador: 30 segundos (puedes aumentarlo si es necesario)
 TIMEOUT=30
 START_TIME=$(date +%s)
 
@@ -11,10 +11,10 @@ until PGPASSWORD=$POSTGRES_PASSWORD pg_isready -h $POSTGRES_HOST -U $POSTGRES_US
   CURRENT_TIME=$(date +%s)
   ELAPSED_TIME=$((CURRENT_TIME - START_TIME))
 
-  # Si han pasado más de 120 segundos, salimos
+  # Si han pasado más de 30 segundos, salimos
   if [ $ELAPSED_TIME -ge $TIMEOUT ]; then
     echo "❌ Tiempo de espera agotado. PostgreSQL no está listo."
-    break
+    exit 1  # Salir con código de error para indicar fallo
   fi
 
   echo "⏳ Esperando PostgreSQL..."
