@@ -14,6 +14,10 @@ COPY . .
 # Genera Prisma Client
 RUN npx prisma generate
 
+# Construye la aplicación Next.js (esto genera la carpeta `.next`)
+RUN npm run build  # Asegúrate de que 'next build' esté configurado en tu package.json
+
+
 # Agrega el entrypoint
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
