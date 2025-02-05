@@ -34,7 +34,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - DATABASE_URL"postgresql://asa:asa@wiimistore001-postgres-1:5432/wiimy_db_store?schema=public"
+      - DATABASE_URL=postgresql://asa:asa@wiimistore001-postgres-1:5432/wiimy_db_store?schema=public
     volumes:
       - .:/app
 
