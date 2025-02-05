@@ -24,6 +24,9 @@ done
 echo "📌 Ejecutando migraciones de Prisma..."
 npx prisma migrate deploy
 
+echo "📌 se compila el proyecto..."
+npm run build
+
 # Inicia la aplicación
 echo "📌 Iniciando la aplicación..."
 exec npm start
